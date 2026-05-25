@@ -113,4 +113,29 @@
             @endforeach
         </div>
     </section>
+
+    <!-- Partners Section -->
+    <section id="partners" class="max-w-7xl mx-auto px-6 pb-24">
+        <div class="flex flex-wrap items-end justify-between gap-4 mb-10">
+            <div>
+                <h2 class="text-3xl font-extrabold mb-2">Partner Kami</h2>
+                <p class="text-slate-500 font-medium">Mitra yang mendukung AmikomEventHub.</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.2em] text-slate-400 font-bold">Trusted By</span>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            @forelse ($partners as $partner)
+                <div class="bg-white border border-slate-100 rounded-2xl p-4 flex flex-col items-center justify-center gap-3 shadow-sm">
+                    <img src="{{ $partner->logo_url }}" alt="Logo {{ $partner->name }}"
+                        class="max-h-14 w-full object-contain">
+                    <p class="text-xs font-bold text-slate-600 text-center">{{ $partner->name }}</p>
+                </div>
+            @empty
+                <div class="col-span-full bg-white border border-slate-100 rounded-2xl p-8 text-center text-slate-500">
+                    Belum ada partner yang ditampilkan.
+                </div>
+            @endforelse
+        </div>
+    </section>
 @endsection
